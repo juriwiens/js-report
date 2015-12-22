@@ -1,0 +1,12 @@
+# Historischer Hintergrund
+
+## Geschichte im Browser-Kontext
+Die Geschichte von JavaScript ist sehr eng an die frühe Geschichte der Webbrowser gekoppelt. Einer der in den 1990er Jahren erfolgreichen Browser Hersteller war Netscape Communications, Entwickler des Netscape Nagavitor. Netscape war der Auffassung, dass Web-Browser und -Server nicht bloß als Anwendungen, sondern mehr als eine neue Art verteiltes Betriebssystem zu verstehen seien. Entwickler sollten damit in die Lage versetzt werden, universelle Anwendungen für alle die Plattformen entwickeln zu können, auf denen ihr Browser lauffähig war. Um dies zu ermöglichen, musste folglich eine portable Programmiersprache im Browser eingesetzt werden können. [Severance]
+
+Einer der Kandidaten war Java, welches die geforderte Portabilität besaß und daher als eine Lösung gewählt wurde. Als Komplement zum komplexen, kompilierten Java wollte Netscape jedoch noch ein leichtgewichtige, interpretierte Skriptsprache bereitstellen. Sie sollte leicht in Webseiten eingebettet und auch von nicht-professionellen Programmierern benutzt werden können. Daraufhin wurde der Entwickler Brendan Eich im Mai 1995 beauftragt, innerhalb von 10 Tagen einen funktionierenden Prototypen einer entsprechenden Sprache zu liefern. Als eine Bedingung galt dabei, dass sie einerseits Java syntaktisch ähneln sollte, andererseits sollte sie sich so weit von Java unterscheiden, dass sie nicht mit ihr in Konkurrenz tritt. Brendan Eich selber schilderte in einem Interview dazu, dass ein Klassenkonstrukt bereits zu Java-ähnlich gewesen wäre und er insgesamt aus marketingtechnischen Gründen dazu gezwungen war, eine "dumme kleine Brudersprache" von Java zu entwickeln. Die genannten Einschränkungen führten dazu, dass sich Eich unterschiedlicher Konzepte aus verschiedenen Programmiersprachen und -paradigmen bediente, auf die in den folgenden Kapiteln näher eingegangen wird. [Severance]
+
+## Standardisierung als ECMAScript
+Im November 1996 wurde JavaScript zwecks Standardisierung an die Ecma International herangetragen, um eine standardisierte Version der Sprache zu erarbeiten. Im Juni 1997 wurde die erste Edition unter dem Namen *ECMAScript* und der Spezifikation ECMA-262 veröffentlicht. Es folgten weitere Editionen bishin zur sechsten Edition, die im Juni 2015 finalisiert wurde und Gegenstand dieser Arbeit ist. [Ecma262]
+
+[Severance: http://www.computer.org/csdl/mags/co/2012/02/mco2012020007-abs.html]
+[Ecma262: http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf]
