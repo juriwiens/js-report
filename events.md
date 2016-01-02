@@ -17,6 +17,23 @@ Dargestellt wird die Ausführung eines Programms/Prozesses, welches zuvor, über
 
 Da hierbei das laufende Programm potentiell an jeder beliebigen Stelle unterbrochen werden kann, könnte dies beispielsweise auch mitten in einer Modifikation einer Datenstruktur geschehen. Sollte nun ein Event Handler Zugriff auf diese Struktur haben und während der Unterbrechung darauf zugreifen, könnte es also sein, dass sich diese in einem inkonsistenten Zustand befindet. Eine typische Methode dies zu verhindern ist es sicher zu stellen, dass Modifikationen von gemeinsamen Datenstrukturen nicht durch Signale unterbrechen werden können, also *atomar* sind. [PLP S.436]
 
+## Thread-basiert Handler
+Als weitere Handler Implementierung existiert der Ansatz, in einem separaten Thread auf den Eintritt von Events zu warten. Dieser wird von einigen bekannten GUI-Systemen, wie dem GNU Image Manipulation Program (GIMP) Tool Kit (Gtk), der Java Swing Bibliothek und der .NET Windows Presentation Foundation (WPF) verfolgt. Zur Verdeutlichung folgt ein Java Swing Beispiel mit einer groben Beschreibung der Funktionsweise.
+
+```java
+JButton pauseButton = new JButton("pause");
+pauseButton.addActionListener(new ActionListener() {
+  public void actionPerformed(ActionEvent e) {
+     // do whatever needs doing
+  }
+});
+```
+[PLP S.437]
+
+In der Java Swing Bibliothek sind Event-Handler Klassen-Instanzen, die das ActionListener Interface implementieren. Diese können, über die `addActionListener` Methode, als solche bei einem Zielobjekt (hier: `pauseButton`), registriert werden. Swing kümmert sich anschließend selbständig darum, dass in einem separaten Thread auf Events des Zielobjekts gewartet wird. Da hierbei nur dieser Thread blockiert wird, kann die Ausführung des Hauptprogramms nebenläufig fortgeführt werden. Tritt schließlich ein Event ein, erfolgt der Rücksprung aus dem blockierenden Warte-Aufruf und die Abarbeitung der registrierten ActionListener. Während dieser Abarbeitung wartet der Thread nicht auf weitere Events und kann daher nicht auf diese reagieren. Aus diesem Grund sollten Event-Handler Codes möglichst kurz sein oder aber in einem zusätzlichen Worker-Thread ausgeführt werden, um schnellstmöglich in den Wartezustand zurückkehren zu können. [PLP S.436ff]
+
+Im Vergleich zu sequentiellen Handlern erfolgt also ein synchroner Rücksprung aus der Wartefunktion, womit eine asynchrone Unterbrechung an einer willkürrlichen Stelle im Code entfällt. Damit werden jedoch nicht die Probleme gemeinsamer Datenstrukturen umgangen. Zwar ist deren Konsistenz innerhalb eines Threads durch die synchrone Ausführung gewährleistet, da aber Event-Handler nebenläufig dazu ausgeführt werden, können überlappende Zugriffe stattfinden, die wiederum über geeignete Synchronisationsmechanismen reguliert werden müssen. [PLP S.436ff]
+
 ## Verwendung in JavaScript
 Wie in den Kapiteln zuvor erwähnt, ist das ursprüngliche Einsatzgebiet von JavaScript der Webbrowser. Letzterer stellt dem Benutzer jede Web-Seite bzw. -Anwendung als eine Oberfläche bereit, mit der interagiert werden kann. Ein simples Beispiel hierfür ist das Ausfüllen eines Formulars: Text kann in Textfelder eingetippt, Optionen per Drop-Down-Menü selektiert und letztendlich das Formular per Klick oder Eingabetaste abgeschickt werden. Eine Anforderung an JavaScript ist in diesem Kontext, dass es dem Entwickler ermöglicht, auf all diese *Ereignisse* (bzw. *Events*) reagieren und gegenfalls das Standardverhalten des Browser modifizieren zu können.
 
