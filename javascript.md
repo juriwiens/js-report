@@ -15,3 +15,37 @@ Im November 1996 wurde JavaScript zwecks Standardisierung an die Ecma Internatio
 
 ## Host-Umgebungen
 Sucht man nach in der ECMAScript Spezifikation (Stand: ECMAScript 2015) nach `setTimeout`, einer wichtigen, häufig verwendeten und global ausführbaren Funktion innerhalb von JavaScript Programmen, so wird man feststellen, dass diese nicht zu dessen Umfang gehört. Dies liegt daran, dass die Sprache selber für den Einsatz innerhalb einer beliebigen *Host-Umgebung* konzipiert wurde. Die typischsten Host-Umgebungen für JavaScript sind Webbrowser, aber auch Node.js zählt zu diesen. Die Spezifikation bildet damit nur eine gemeinsame Basis für unterschiedliche Implementierungen und lässt umgebungsspezifische Details bewusst offen. So werden beispielsweise weder Ein-/Ausgabe Mechanismen, noch ein Nebenläufigkeits- bzw. Threading-Modell spezifiziert. Stattdessen fordert die Spezifikation, dass konkrete Ausführungsumgebungen fehlende Funktionalitäten und Verhalten über Objekte bereitstellen. So wird die `setTimeout` in Node.js als globale Funktion und innerhalb aller großer Webbrowser als Methode des `window`-Objekts bereitgestellt und ist somit ein Beispiel hierfür.
+
+## Datentypen
+
+## Objekte
+
+### Definitionen und logischer Aufbau
+In JavaScript sind Objekte eine Sammlung von *Properties* (Eigenschaften). Es existieren zwei Arten von Properties:
+- Ein *Daten-Property* assoziiert einen *Key* mit einem Wert und einer Menge von *Attributen*.
+- Ein *Accessor-Property* assoziiert einen *Key* mit einem oder zwei *Accessor-Funktionen* (*Getter*-/ *Setter*-Funktionen) und einer Menge von *Attributen*.
+
+*Keys* sind Werte vom Typ String oder Symbol. Sie ermöglichen die Identifizierung von Properties, sowie den Zugriff auf diese.
+
+*Attribute* sind Werte, die den Zustand eines Property beschreiben. Jedes Property ist durch folgende Attribute charakterisiert:
+- *[[Enumerable]]*: ein Boolean-Wert, der definiert, ob das Property in einer for-in-Schleife berücksichtigt wird.
+- *[[Configurable]]*: ein Boolean-Wert, der definiert, ob das Property gelöscht, die Property-Art (zu Daten- bzw. Accessor-Property) geändert oder Attribute geändert werden dürfen.
+
+Es existieren weitere Property-Art-spezifische Attribute, deren Auflistung nicht zum Umfang dieses Texts gehört.
+
+### Initialisierung
+JavaScript ist eine objekt-orientierte Programmiersprache. Im Gegensatz zu anderen Sprachen dieser Art, wie Java oder C++, sind Objekte jedoch nicht klassen-basiert, sondern können auf unterschiedlichen Wegen erzeugt werden: über *Objekt-Literale*, über *Konstruktor-Funktionen*, über *Object.create* und über die in ECMAScript 2015 eingeführten *Klassen*.
+
+Die folgenden Code-Beispiele demonstrieren die unterschiedlichen Initialisierungs-Varianten. In allen wird ein Objekt mit dem Attribut `name` und der Methode `sayName` erzeugt und anschließend der Variable `person` zugewiesen. Schließlich wird die `sayName` aufgerufen.
+
+[object-literal.js]
+[object-constructor.js]
+[object-create.js]
+[object-class.js]
+
+An dieser Stelle sei erwähnt, dass alle drei Konstrukte zu zwar ähnlichen, aber nicht exakt gleichen Ergebnisobjekten führen. So unterscheiden sich zum Beispiel die Property-Attribute.
+
+### Prototyp-basierte Vererbung
+
+
+## Funktionen
