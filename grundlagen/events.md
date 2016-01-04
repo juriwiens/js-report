@@ -34,6 +34,9 @@ In der Java Swing Bibliothek sind Event-Handler Klassen-Instanzen, die das Actio
 
 Im Vergleich zu sequentiellen Handlern erfolgt also ein synchroner Rücksprung aus der Wartefunktion, womit eine asynchrone Unterbrechung an einer willkürrlichen Stelle im Code entfällt. Damit werden jedoch nicht die Probleme gemeinsamer Datenstrukturen umgangen. Zwar ist deren Konsistenz innerhalb eines Threads durch die synchrone Ausführung gewährleistet, da aber Event-Handler nebenläufig dazu ausgeführt werden, können überlappende Zugriffe stattfinden, die wiederum über geeignete Synchronisationsmechanismen reguliert werden müssen. [PLP S.436ff]
 
+## Event-getriebene Programmierung / Event Loop
+Die event-getriebene Programmierung ist ein Programmierparadigma, bei dem der Programmablauf durch den Eintritt von Events bestimmt wird. Die Hauptkomponente eines event-getriebenen Programms besteht meist aus einer Schleife, die auf den Eintritt von Events wartet und anschließend damit assoziierte Callback-Funktionen ausführt. Diese Schleife wird als *Event Loop*, *Main Loop* oder *Dispatch Loop* bezeichnet.
+
 ## Verwendung in JavaScript
 Wie in den Kapiteln zuvor erwähnt, ist das ursprüngliche Einsatzgebiet von JavaScript der Webbrowser. Letzterer stellt dem Benutzer jede Web-Seite bzw. -Anwendung als eine Oberfläche bereit, mit der interagiert werden kann. Ein simples Beispiel hierfür ist das Ausfüllen eines Formulars: Text kann in Textfelder eingetippt, Optionen per Drop-Down-Menü selektiert und letztendlich das Formular per Klick oder Eingabetaste abgeschickt werden. Eine Anforderung an JavaScript ist in diesem Kontext, dass es dem Entwickler ermöglicht, auf all diese *Ereignisse* (bzw. *Events*) reagieren und gegenfalls das Standardverhalten des Browser modifizieren zu können.
 
