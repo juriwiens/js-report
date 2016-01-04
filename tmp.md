@@ -1,0 +1,4 @@
+## Verwendung von Events in JavaScript
+Wie in den Kapiteln zuvor erwähnt, ist das ursprüngliche Einsatzgebiet von JavaScript der Webbrowser. Letzterer stellt dem Benutzer jede Web-Seite bzw. -Anwendung als eine Oberfläche bereit, mit der interagiert werden kann. Ein simples Beispiel hierfür ist das Ausfüllen eines Formulars: Text kann in Textfelder eingetippt, Optionen per Drop-Down-Menü selektiert und letztendlich das Formular per Klick oder Eingabetaste abgeschickt werden. Eine Anforderung an JavaScript ist in diesem Kontext, dass es dem Entwickler ermöglicht, auf all diese *Ereignisse* (bzw. *Events*) reagieren und gegenfalls das Standardverhalten des Browser modifizieren zu können.
+
+Auch in einer Node.js Umgebung ohne grafische Benutzeroberfläche besteht ein Bedarf für event-basierte Verarbeitung. Da das JavaScript Laufzeitsystem auf einen Thread limitiert ist, würde jede Ein- bzw. Ausgabeoperation zwangsläufig zu einem Blockieren des Prozesses führen.

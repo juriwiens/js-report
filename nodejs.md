@@ -1,4 +1,6 @@
-# Geschichte von Node.js
+# Node.js
+
+## Geschichte
 JavaScript setzte sich zwar über die Jahre erfolgreich als clientseitige Sprache innerhalb aller großen Webbrowser durch, war jedoch lange Zeit auf dieses Einsatzgebiet begrenzt. Dies änderte der Entwickler Ryan Dahl im Jahr 2009 mit der Veröffentlichung seiner auf JavaScript basierenden, browserunabhängigen Laufzeitumgebung *Node.js*. Die Entwicklung war inspiriert von der Idee, Nebenläufigkeit dadurch zu erreichen, dass jegliche Ein-/Ausgabe (EA) niemals blockieren sollte. Ein weiteres Ziel war Plattformuabhängigkeit. JavaScript erwies sich hierfür aus mehreren Gründen als eine geeignete Grundlage. Zum einen war die Sprache von Anfang an für eine event-basierte Verarbeitung mit asynchroner EA konzipiert worden. Zum anderen existierten dank der Browserhersteller bereits leistungsstarke, plattformunabhängige Sprachimplementierungen (im JavaScript-Kontext meist als *Engines* bezeichnet), sowie eine große und aktive Entwickler-Community.
 
 Dahl wählte schließlich die von Google in C++ geschriebene V8-Engine als Basis und kombinierte diese mit weiteren C- und JavaScript-Bibliotheken zu einer Laufzeitumgebung. Diese war in den ersten Versionsnummern nur auf Linux lauffähig, wurde im Verlauf jedoch um eine Windows und Mac OS X Unterstützung ergänzt. Damit war es schließlich möglich, in JavaScript geschriebene, event-getriebene Anwendungen außerhalb des Webbrowser-Kontexts auszuführen.
